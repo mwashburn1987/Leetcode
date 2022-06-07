@@ -24,7 +24,8 @@ var hasCycle = function(head) {
         }
     }
     return false;
-
+    //Space Comp O(1)
+    //Time Comp O(N)
 };
 
     
