@@ -8,7 +8,10 @@ var containsDuplicate = function(nums) {
     //loop through array
     //if set has curr element, return true
     //else add to set
-    //return falase
+    //return false
+    
+    //alternate accepted method
+    //sort array and loop through checking i === i+1
     
     //O(n) time
     //O(n) space
