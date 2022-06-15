@@ -10,6 +10,8 @@ var containsDuplicate = function(nums) {
     //else add to set
     //return falase
     
+    //O(n) time
+    //O(n^2) space
     let set = new Set();
     for(let i = 0; i < nums.length; i++) {
         if(set.has(nums[i])) {
