@@ -15,6 +15,9 @@ var maxArea = function(height) {
     //continue until pointers intersetc
     //return largest container
     
+    //O(n) Time
+    //O(n) Space
+    
     let p1 = 0;
     let p2 = height.length - 1;
     let maxContainer = 0;
