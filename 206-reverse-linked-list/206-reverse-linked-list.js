@@ -15,6 +15,9 @@ var reverseList = function(head) {
     //loop through list, set pointers for prevNode, currNode and currNode.next
     //reassign pointers
     //return new head
+    
+    //O(n) time
+    //O(1) space
    
     let prevNode = null;
     let currNode = head;
