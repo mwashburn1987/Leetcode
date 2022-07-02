@@ -22,12 +22,11 @@ class UnionFind {
         if(u === v) return false;
         if(this.rank[u] > this.rank[v]) {
             this.root[v] = u;
-        } else if (this.rank[v] > this.rank[u]) {
+            this.rank[u] += this.rank[v]
+        } else  {
             this.root[u] = v;
-        } else {
-            this.root[v] = u;
-            this.rank[u]++;
-        }
+            this.rank[v] += this.rank[u];
+        } 
         return true;
     }
     
