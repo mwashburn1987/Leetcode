@@ -6,35 +6,71 @@
  * @return {boolean}
  */
 var validPath = function(n, edges, source, destination) {
+   
+    //DFS
+//     let adj = {};
+//     let stack = [];
+//     let visited = new Set();
     
-    let adj = {};
-    let stack = [];
-    let visited = new Set();
+//     edges.forEach((edge) => {
+//         if(adj[edge[0]]) {
+//             adj[edge[0]].push(edge[1])
+//         } else {
+//             adj[edge[0]] = [edge[1]];
+//         }
+//         if(adj[edge[1]]) {
+//             adj[edge[1]].push(edge[0]);
+//         } else {
+//             adj[edge[1]] = [edge[0]];
+//         }
+//     });
+//     stack.push(source);
+//     while(stack.length > 0) {
+//         let currentNode = stack.pop();
+//         if(currentNode === destination) {
+//             return true;
+//         }
+//         if(!visited.has(currentNode)) {
+//             adj[currentNode].forEach((neighbor) => {
+//                 stack.push(neighbor);
+//             });
+//             visited.add(currentNode);
+//         }
+//     }
+//     return false;
     
-    edges.forEach((edge) => {
-        if(adj[edge[0]]) {
-            adj[edge[0]].push(edge[1])
+    //BFS
+    
+    let map = new Map();
+    let que = [];
+    let seen = new Set();
+    
+    for(let [a,b] of edges) {
+        if(map.has(a)) {
+            map.get(a).push(b)
         } else {
-            adj[edge[0]] = [edge[1]];
+            map.set(a, [b])
         }
-        if(adj[edge[1]]) {
-            adj[edge[1]].push(edge[0]);
+        if(map.has(b)) {
+            map.get(b).push(a);
         } else {
-            adj[edge[1]] = [edge[0]];
+            map.set(b, [a]);
         }
-    });
-    stack.push(source);
-    while(stack.length > 0) {
-        let currentNode = stack.pop();
-        if(currentNode === destination) {
+        
+    }
+    
+    que.push(source);
+    while(que.length > 0) {
+        let currNode = que.shift();
+        if(currNode === destination) {
             return true;
         }
-        if(!visited.has(currentNode)) {
-            adj[currentNode].forEach((neighbor) => {
-                stack.push(neighbor);
-            });
-            visited.add(currentNode);
+        if(!seen.has(currNode)) {
+            map.get(currNode).forEach((node) => {
+                que.push(node)
+            })
         }
+        seen.add(currNode);
     }
     return false;
 };
