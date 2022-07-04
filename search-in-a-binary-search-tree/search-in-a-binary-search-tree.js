@@ -31,7 +31,7 @@ var searchBST = function(root, val) {
     
     while(stack.length) {
         const node = stack.pop();
-        if(!node) continue;
+        if(!node) return null;
         if (node.val === val) return node;
         
         if(val < node.val) {
@@ -40,5 +40,5 @@ var searchBST = function(root, val) {
             stack.push(node.right);
         }
     }
-    return null;
+    // return null;
 }
