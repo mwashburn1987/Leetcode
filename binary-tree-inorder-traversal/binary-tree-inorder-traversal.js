@@ -12,20 +12,43 @@
  */
 var inorderTraversal = function(root) {
     
+    //recursion is trivial you say. . . 
+//     if(!root) {
+//         return [];
+//     }
+//     const results = [];
+    
+//     const dfs = (node, results) => {
+//         if(!node) {
+//             return;
+//         }
+//         dfs(node.left, results);
+//         results.push(node.val);
+//         dfs(node.right, results);
+//     }
+//     dfs(root, results)
+    
+//     return results;
+    
+    
+    //let's try iteratively
+    
     if(!root) {
         return [];
     }
-    const results = [];
     
-    const dfs = (node, results) => {
-        if(!node) {
-            return;
-        }
-        dfs(node.left, results);
-        results.push(node.val);
-        dfs(node.right, results);
+  var callStack = [];
+  var current = root;
+  var result = [];
+  while (true) {
+    while (!!current) {
+        callStack.push(current);
+        current = current.left;
     }
-    dfs(root, results)
-    
-    return results;
+    if (callStack.length == 0) break;
+    var lastCurrent = callStack.pop();
+      result.push(lastCurrent.val);
+      current = lastCurrent.right;
+  }
+    return result;
 };
