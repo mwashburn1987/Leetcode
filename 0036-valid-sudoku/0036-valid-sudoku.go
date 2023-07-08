@@ -37,58 +37,8 @@ func isValidSudoku(board [][]byte) bool {
                 rows[i][c]++;
                 cols[j][c]++;
                 grid[g][c]++;
-            }
-            
+            }  
         }
     }
-
-    // return true if all checks pass
     return true
 }
-
-// func rowCheck(board [][]byte) bool {
-//       for i := 0; i < len(board[0]); i++ {
-//         m := make(map[string]bool)
-//         for k := 0; k < len(board[i]; k++) {
-//             s := string(board[i][k]);
-//             if s == "." {
-//                 continue;
-//             } 
-//             else if _, ok := m[s]; ok
-//             {
-//                 return false;
-//             } else {
-//                 m[s] = true;
-//             }
-//         }
-//     }
-//     return true;
-// }
-
-// func colCheck(board [][]byte) bool {
-//         for i := 0; i < len(board); i++ {
-//         m := make(map[string]bool);
-//         for k := 0; k < len(board[0]; k++) {
-//             s := string(board[k][i])
-//             if s == "." {
-//                 continue;
-//             } 
-//             else if _, ok := m[s]; ok
-//             {
-//                 return false;
-//             } else {
-//                 m[s] = true;
-//             }
-//         }
-//     }
-// }
-
-// func gridCheck(board [][]byte) bool {
-//     if !rowCheck(board) {
-//         return false
-//     }
-//     if !colCheck(board) {
-//         return false
-//     }
-//     return true;
-// }
